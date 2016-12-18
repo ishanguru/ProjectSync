@@ -2,9 +2,9 @@
  * Created by ishanguru on 12/17/16.
  */
 
-Users = new Mongo.Collection('users');
-Events = new Mongo.Collection('events');
-Messages = new Mongo.Collection('messages');
+export const Users = new Mongo.Collection('users');
+export const Events = new Mongo.Collection('events');
+export const Messages = new Mongo.Collection('messages');
 
 EventSchema = new SimpleSchema({
 
