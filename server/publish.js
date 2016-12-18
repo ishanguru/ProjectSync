@@ -2,12 +2,12 @@
  * Created by ishanguru on 12/18/16.
  */
 
-import { Users } from '../collections/collections.js'
-import { Events } from '../collections/collections.js'
-import { Messages } from '../collections/collections.js'
+import { CurrentUsers } from '../collections/users.js'
+import { Events } from '../collections/events.js'
+import { Messages } from '../collections/messages.js'
 
 Meteor.publish('users', function () {
-    return Users.find({});
+    return CurrentUsers.find({});
 });
 
 Meteor.publish('events', function () {
