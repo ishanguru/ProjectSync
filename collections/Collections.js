@@ -9,31 +9,23 @@ Messages = new Mongo.Collection('messages');
 EventSchema = new SimpleSchema({
 
     category: {
-
         type: String,
         label: "Category"
-
     },
 
     name: {
-
         type: String,
         label: "Name"
-
     },
 
     description: {
-
         type: String,
         label: "Description"
-
     },
 
     location: {
-
         type: String,
         label: "Location"
-
     },
 
     eventDate: {
@@ -42,7 +34,6 @@ EventSchema = new SimpleSchema({
     },
 
     createdAt: {
-
         type: Date,
         label: "Created At",
         autoValue: function (){
@@ -51,17 +42,13 @@ EventSchema = new SimpleSchema({
     },
 
     host: {
-
         type: UsersSchema,
         label: "Host"
-
     },
 
     users: {
-
         type: Array[UsersSchema],
         label: "People going"
-
     }
 
 });
