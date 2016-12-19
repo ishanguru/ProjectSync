@@ -15,6 +15,11 @@ UsersSchema = new SimpleSchema({
         label: "Name"
     },
 
+    bio: {
+        type: String,
+        label: "Bio"
+    },
+
     userId: {
         type: String,
         label: "UserId",
