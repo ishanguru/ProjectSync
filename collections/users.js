@@ -48,3 +48,11 @@ UsersSchema = new SimpleSchema({
 });
 
 CurrentUsers.attachSchema(UsersSchema);
+
+if (Meteor.isServer) {
+    Meteor.publish('current_users', function() {
+        return CurrentUsers.find({});
+    });
+} else if (Meteor.isClient) {
+    Meteor.subscribe('current_users');
+}

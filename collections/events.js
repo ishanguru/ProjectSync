@@ -1,9 +1,16 @@
 /**
  * Created by ishanguru on 12/18/16.
  */
+import { Mongo } from 'meteor/mongo'
+
 import { UsersSchema } from './users.js'
 
-export const Events = new Mongo.Collection('events');
+export const Events = new Mongo.Collection("events");
+
+/*Events.allow({
+   insert: function (userId, doc) {
+   }
+});*/
 
 EventSchema = new SimpleSchema({
 
@@ -41,15 +48,23 @@ EventSchema = new SimpleSchema({
     },
 
     host: {
-        type: UsersSchema,
+        type: String,
         label: "Host"
     },
 
     users: {
-        type: Array[UsersSchema],
+        type: String,
         label: "People going"
     }
 
 });
 
 Events.attachSchema(EventSchema);
+
+if (Meteor.isServer) {
+    Meteor.publish('events', function() {
+        return Events.find({});
+    });
+} else if (Meteor.isClient) {
+    Meteor.subscribe('events');
+}

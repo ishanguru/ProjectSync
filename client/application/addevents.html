@@ -1,0 +1,29 @@
+<template name="addEvents">
+    <form class="eventsForm">
+        <div class="form-group row">
+            <label for="etf_symbol" class="col-sm-2 col-form-label">Category</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="category" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="orderQty" class="col-sm-2 col-form-label">Location</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="location" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="account" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="description" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-xs-3">
+                <input type="submit" id="submitButton" class="btn btn-success col-sm-3 btn-block" value="SUBMIT">
+            </div>
+        </div>
+    </form>
+    {{tempfunc}}
+
+</template>
