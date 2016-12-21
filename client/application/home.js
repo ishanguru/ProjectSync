@@ -19,3 +19,13 @@ Template.home.helpers({
     }
 
 });
+
+Template.home.events({
+    'click .joinevent': function (event) {
+        console.log("Joined event");
+        var target = event.target;
+        console.log(target.id);
+
+        //get this event ID, update the record in user, by appending this event ID to their events array
+    }
+});

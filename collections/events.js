@@ -14,6 +14,14 @@ export const Events = new Mongo.Collection("events");
 
 EventSchema = new SimpleSchema({
 
+    eventId: {
+        type: String,
+        label: "EventId",
+        autoValue: function () {
+            return new Meteor.Collection.ObjectID().toHexString();
+        }
+    },
+
     category: {
         type: String,
         label: "Category"
@@ -53,7 +61,7 @@ EventSchema = new SimpleSchema({
     },
 
     users: {
-        type: String,
+        type: Array[String],
         label: "People going"
     }
 

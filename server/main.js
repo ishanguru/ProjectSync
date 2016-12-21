@@ -10,6 +10,13 @@ Meteor.startup(() => {
         store: function (category, description, name, host, location) {
             console.log("!@#$%^&*()");
             Events.insert({'category': category, 'name': name, 'description': description, 'eventDate': new Date, 'location': location, 'host': host, 'users': "temp"});
+        },
+
+        joinEvents: function (userId, eventId) {
+            Events.update(
+                { eventId: eventId},
+                { $push: {users: userId}}
+            );
         }
     })
 });
