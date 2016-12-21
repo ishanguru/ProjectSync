@@ -6,12 +6,6 @@ import { Events } from '../../collections/events.js';
 
 Template.addEvents.helpers({
 
-    tempfunc : function () {
-        var allValues = Events.findOne({});
-        console.log(allValues);
-       // return allValues;
-    }
-
 });
 
 Template.addEvents.events({
@@ -24,12 +18,16 @@ Template.addEvents.events({
         var location = target.location.value;
         var description = target.location.value;
         var date = new Date();
+        var name = target.name.value;
+        var host =  Meteor.userId();
+
+        console.log(host);
 
         console.log(category);
         console.log(location);
         console.log(description);
 
-        Meteor.call("store", function () {
+        Meteor.call("store", category, description, name, host, location,  function () {
 
         });
 
