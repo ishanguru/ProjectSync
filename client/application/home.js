@@ -24,8 +24,13 @@ Template.home.events({
     'click .joinevent': function (event) {
         console.log("Joined event");
         var target = event.target;
-        console.log(target.id);
 
+        var eventId = target.id;
+        var userId = Meteor.userId();
+        
+        Meteor.call("joinEvents", userId, eventId, function () {
+            
+        });
         //get this event ID, update the record in user, by appending this event ID to their events array
     }
 });

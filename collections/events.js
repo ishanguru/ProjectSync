@@ -61,7 +61,7 @@ EventSchema = new SimpleSchema({
     },
 
     users: {
-        type: Array[String],
+        type: [String],
         label: "People going"
     }
 
