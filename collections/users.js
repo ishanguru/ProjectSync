@@ -1,6 +1,7 @@
 /**
  * Created by ishanguru on 12/17/16.
  */
+
 import { Mongo } from 'meteor/mongo'
 import { EventSchema } from './events.js'
 import { MessageSchema } from './messages.js'

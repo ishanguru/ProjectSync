@@ -1,0 +1,34 @@
+<template name="profile">
+    <!--Container to align modal button-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-7">
+                <form class="eventsForm">
+                    <div class="form-group row" >
+                        <label for="etf_symbol" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-4" id="rowOne">
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <label for="orderQty" class="col-sm-2 col-form-label">Bio</label>
+                        <div class="col-sm-4" id="rowTwo">
+                            <input type="text" class="form-control" id="bio" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-xs-3">
+                            <input type="submit" id="submitButton_profile" class="btn btn-success col-sm-3 btn-block" value="UPDATE" >
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+    </div>
+    {{addUserInDB}}
+    {{checkUserProfileInfo}}
+</template>
