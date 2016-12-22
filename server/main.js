@@ -7,9 +7,9 @@ import { CurrentUsers } from '../collections/users.js'
 Meteor.startup(() => {
   // code to run on server at startup
     Meteor.methods({
-        store: function () {
+        store: function (category, description, name, host, location) {
             console.log("!@#$%^&*()");
-            Events.insert({'category': "category", 'name': "Ishan", 'description': "cool", 'eventDate': new Date, 'location': "png", 'host': "user", 'users': "temp"});
+            Events.insert({'category': category, 'name': name, 'description': description, 'eventDate': new Date, 'location': location, 'host': host, 'users': ["temp"]});
         },
         profile_update: function (curr_id, name, bio) {
             console.log("in profile update");
@@ -51,6 +51,15 @@ Meteor.startup(() => {
                 json = [false];
             }
             return json;
+        },
+
+        joinEvents: function (userId, eventId) {
+            var updatedRecords = Events.update(
+                { eventId: eventId},
+                { $push: {users: userId}}
+            );
+            console.log(updatedRecords);
+            return updatedRecords
         }
     })
 });
