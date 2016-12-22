@@ -32,3 +32,5 @@ accounts-facebook@1.0.11
 aldeed:collection2
 aldeed:autoform
 meteorhacks:aggregate
+check
+ejson

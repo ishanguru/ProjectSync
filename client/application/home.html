@@ -7,7 +7,14 @@
             <div class="col-sm-7">
                 <h1>This is the home page</h1>
                 <br>
-                {{> addEvents }}
+                <h2>These are your recommended events</h2>
+                <ul>
+                    {{#each tempfunc}}
+                        <li>
+                            {{description}} <h6 class="joinevent" id="{{eventId}}">Join event</h6>
+                        </li>
+                    {{/each}}
+                </ul>
             </div>
             <div class="col-sm-2">
             </div>
