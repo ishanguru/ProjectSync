@@ -10,6 +10,13 @@ Meteor.startup(() => {
         store: function () {
             console.log("!@#$%^&*()");
             Events.insert({'category': "category", 'name': "Ishan", 'description': "cool", 'eventDate': new Date, 'location': "png", 'host': "user", 'users': "temp"});
+        },
+        getCurrentMessages: function(){
+        	console.log("jmklmklmlmklmklm")
+        	return Messages.find({to: Meteor.userId()}).fetch();
+        }, 
+        test: function(){
+        	console.log("I CAN MAKE CALLS BITCH")
         }
     })
 });

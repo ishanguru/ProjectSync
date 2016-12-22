@@ -1,21 +1,19 @@
-/**
- * Created by ishanguru on 12/18/16.
- */
+import { Events } from '../../collections/messages.js';
+import { Messages } from '../../collections/events.js';
+import { CurrentUsers } from '../../collections/users.js';
 
-import { Events } from '../../collections/events.js';
+// function getMessages(){
+//     Meteor.call("test")
+// };
 
-Template.addEvents.helpers({
-
-    tempfunc : function () {
-        var allValues = Events.findOne({});
-        console.log(allValues);
-       // return allValues;
+/*Template.messages.onCreated(function(){
+    if ((Meteor.call("getCurrentMessages"))==null){
+        
     }
+});*/
 
-});
-
-Template.addEvents.events({
-    'submit .eventsForm': function (event) {
+/*Template.addNavigationEvent.events({
+    'submit .navForm': function (event) {
         event.preventDefault();
 
         var target = event.target;
@@ -35,4 +33,4 @@ Template.addEvents.events({
 
         console.log("inserted into db");
     }
-});
+});*/

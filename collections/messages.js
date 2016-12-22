@@ -10,18 +10,25 @@ export const Messages = new Mongo.Collection('messages');
 MessageSchema = new SimpleSchema({
 
     to: {
-        type: Array[UsersSchema]
+        type: String
     },
 
     from: {
-        type: [UsersSchema]
+        type: String
     },
 
     message: {
         type: String,
         label: "Message"
+    },
+    
+    createdAt:{
+	type: Date, 
+	label: "Created At",
+	autoValue function(){
+	    return new Date();
+	}
     }
-
 });
 
 Messages.attachSchema(MessageSchema);
