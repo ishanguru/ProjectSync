@@ -415,6 +415,14 @@ body {
         border-color: #d12323;
     }
 
+    #event_thumbnails .col-md-12.thumbnail.eventpadding .leaveevent.btn.btn-success:hover {
+        background-color: black;
+        border-color: black;
+        color: white;
+    }
+
+    
+
     /* Not Logged In Page */
     #not_logged_in_jumbo {
         margin-left: 0;
