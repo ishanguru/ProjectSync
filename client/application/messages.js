@@ -55,7 +55,7 @@ Template.body.events({
     }, 
     'click #submitButton_sendm': function(e){
         e.preventDefault();
-        console.log($("messageText").html());
+        console.log($("#messageText").html());
         $("#messageText").remove();
         $("#messaging").remove();
        // Meteor.call("getMessages", )
