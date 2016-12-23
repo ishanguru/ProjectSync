@@ -198,6 +198,12 @@ body {
     margin-left: 25%;
 }
 
+#event_thumbnails .col-md-12.thumbnail.eventpadding .col-form-label.name {
+    font-size: large;
+}
+
+
+
 /*Here is where you put the css for media*/
 
 @media only screen and (max-width: 500px) {
@@ -251,10 +257,6 @@ body {
 
     }
 
-    #spacebar {
-
-    }
-
     /* Event Page */
     .form-group.row label {
         color: white;
@@ -263,7 +265,7 @@ body {
     #top_button {
         background-color: white;
         border: 1px solid white;
-        margin-left: 190%;
+        margin-left: 180%;
     }
 
     #top_button span {
@@ -274,7 +276,7 @@ body {
     #top_button:hover{
         background-color: black;
         border: 1px solid black;
-        margin-left: 190%;
+        margin-left: 180%;
     }
 
     #top_button span:hover {
@@ -295,7 +297,7 @@ body {
         background-color: white;
         border: 1px solid white;
         width: 200%;
-        margin-left: 80px;
+        margin-left: 88px;
         color: black;
         font-weight: bold;
     }
@@ -304,13 +306,15 @@ body {
         background-color: black;
         border: 1px solid black;
         width: 200%;
-        margin-left: 80px;
+        margin-left: 88px;
         color: white;
     }
 
     /* Main Feed Page */
     #event_thumbnails {
-        margin: 0 5% 0 5%;
+        margin-left: -100px;
+        width: 150%;
+        font-size: small;
     }
 
     .col-md-12.thumbnail.eventpadding .leaveevent.btn.btn-success:hover{
@@ -325,6 +329,15 @@ body {
         border: 1px solid black;
         margin-bottom: 3%;
         color: white;
+    }
+
+    #event_thumbnails .col-md-12.thumbnail.eventpadding .col-form-label.name {
+        font-size: medium;
+    }
+
+    #event_thumbnails .col-md-12.thumbnail.eventpadding .leaveevent.btn.btn-success {
+        background-color: #d12323;
+        border-color: #d12323;
     }
 
     /* Not Logged In Page */
