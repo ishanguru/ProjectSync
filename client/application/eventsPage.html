@@ -50,7 +50,9 @@
                 <div class="col-md-12 thumbnail eventpadding">
                     <label class="col-form-label"><h4>{{name}}</h4></label><br>
                     <label class="col-form-label">{{location}}</label><br>
-                    <label class="col-form-label">{{eventDate}}</label>
+                    <label class="col-form-label">{{eventDate}}</label><br>
+                    <label class="col-form-label users_date">Number of people: {{totalUsers users}}</label><br>
+                    <label class="col-form-label users_date">{{usersFunction users}}</label><br>
                     <h6 class="cancelevent" id="{{_id}}">Cancel Event</h6>
                 </div>
             {{/each}}
@@ -60,7 +62,9 @@
                 <div class="col-md-12 thumbnail eventpadding">
                     <label class="col-form-label"><h4>{{name}}</h4></label><br>
                     <label class="col-form-label">{{location}}</label><br>
-                    <label class="col-form-label">{{eventDate}}</label>
+                    <label class="col-form-label">{{eventDate}}</label><br>
+                    <label class="col-form-label users_date">Number of people: {{totalUsers users}}</label><br>
+                    <label class="col-form-label users_date">{{usersFunction users}}</label><br>
                     <h6 class="leaveevent" id="{{_id}}">Leave Event</h6>
                 </div>
             {{/each}}
