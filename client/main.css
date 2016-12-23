@@ -1,6 +1,7 @@
 /* CSS declarations go here */
 body {
    background-color: #F7F7F7;
+ /*   background-image: url("http://luxesocietyasia.com/wp-content/uploads/2014/09/KuDeTa-Fourth-Anniversary-Party-Scene.jpeg"); */
 
 }
 
@@ -25,30 +26,34 @@ body {
 #not_logged_in_jumbo {
     margin-top: -20px;
     height: 700px;
-    background-image: url("http://luxesocietyasia.com/wp-content/uploads/2014/09/KuDeTa-Fourth-Anniversary-Party-Scene.jpeg");
+   /*  background-image: url("http://luxesocietyasia.com/wp-content/uploads/2014/09/KuDeTa-Fourth-Anniversary-Party-Scene.jpeg"); */
     position: relative;
 }
 
 
 #jumbo_text h1{
     margin: 0 !important;
-    font-size: 375%;
+    font-size: 500%;
     color: #FE4C4C;
     text-align: center;
+    font-weight: normal;
 }
 
 #jumbo_text p{
-    font-size: 200%;
-    color: white;
+    font-size: 300%;
+    color: #FE4C4C;
     text-align: center;
+    font-weight: lighter;
+
 }
 
 #jumbo_text {
     text-align: center;
     z-index: 100;
     position: absolute;
-    left: 40%;
-    top: 30%;
+    left: 30%;
+    top: 25%;
+    padding: 3%;
 }
 
 #jumbo_text button {
@@ -60,16 +65,42 @@ body {
 #login_button {
     text-decoration: none;
 }
-/*
-#video-background {
-    /*  making the video fullscreen  */
- /*   position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-} */
 
+#profile_block {
+    width: 40%;
+    padding: 2%;
+    margin: 10% 30% auto auto;
+    font-size: 200%;
+}
+
+#rowOne {
+    margin-left: 10%;
+    width: 70%;
+}
+
+#rowTwo {
+    margin-left: 10%;
+    width: 70%;
+}
+
+#submitButton_profile {
+    width: 40%;
+    margin-left: 20%;
+    background-color: #FE4C4C;
+    border: 1px solid #F74444;;
+}
+
+#rowThree {
+}
+
+.eventsForm {
+    padding: 1%;
+}
+
+.col-sm-8 {
+    text-align: center;
+}
+
+.form-group.row label {
+    color: #FE4C4C;
+}
