@@ -202,9 +202,14 @@ body {
     font-size: large;
 }
 
-#event_thumbnails .col-md-12.thumbnail.eventpadding .leaveevent.btn.btn-success {
-    background-color: #d12323;
-    border-color: #d12323;
+.col-md-12.thumbnail.eventpadding .leaveevent.btn.btn-success {
+    margin-bottom: 3%;
+}
+
+.col-md-12.thumbnail.eventpadding .leaveevent.btn.btn-success:hover{
+    background-color: #67A2FA;
+    border: 1px solid #67A2FA;
+    margin-bottom: 3%;
 }
 
 #chat_hist {
@@ -285,6 +290,17 @@ body {
     body {
         background-color: #d12323;
     }
+
+    .col-md-12.thumbnail.eventpadding .leaveevent.btn.btn-success {
+        margin-bottom: 3%;
+    }
+
+    .col-md-12.thumbnail.eventpadding .leaveevent.btn.btn-success:hover{
+        background-color: #67A2FA;
+        border: 1px solid #67A2FA;
+        margin-bottom: 3%;
+    }
+
 
     #jumbo_text p {
 
