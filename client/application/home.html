@@ -2,13 +2,14 @@
     <!--Container to align modal button-->
     <div class="container">
         <div class="row">
-            <div class="row">
+            <div class="row" id="event_thumbnails">
                 {{#each joinEventFunction}}
                 <div class="col-md-12 thumbnail eventpadding">
-                    <label class="col-form-label">{{name}}</label><br>
-                    <label class="col-form-label">{{location}}</label><br>
-                    <label class="col-form-label">{{eventDate}}</label>
-                    <h6 class="joinevent" id="{{_id}}">Join event</h6>
+                    <label class="col-form-label name"><h2>{{name}}</h2></label><br>
+                    <label class="col-form-label location">{{location}}</label><br>
+                    <label class="col-form-label event_date">{{eventDate}}</label>
+                    <br>
+                    <h6 class="joinevent btn btn-danger" id="{{_id}}">Join event</h6>
                 </div>
                 {{/each}}
             </div>
