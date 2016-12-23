@@ -1,55 +1,63 @@
 <template name="eventsPage">
-    <form class="eventsForm">
-        <div class="form-group row">
-            <label for="etf_symbol" class="col-sm-2 col-form-label">Category</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="category" required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="etf_symbol" class="col-sm-2 col-form-label">Event Name</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="name" required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="orderQty" class="col-sm-2 col-form-label">Location</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="location" required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="account" class="col-sm-2 col-form-label">Description</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="description" required>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="date" class="col-sm-2 col-form-label">Event Date</label>
-            <div class="col-sm-4">
-                <input type="date" class="form-control" id="date" required>
-            </div>
-        </div>
+    <div id="event_page_top_form">
         <div class="form-group row">
             <div class="col-xs-3">
-                <input type="submit" id="submitButton" class="btn btn-success col-sm-3 btn-block" value="SUBMIT">
+                <h4 class="btn btn-danger" id="top_button"><span>ADD EVENT</span></h4>
             </div>
         </div>
-    </form>
+        <form class="eventsForm" id="event_page_top_form_content">
+            <div class="form-group row">
+                <label for="etf_symbol" class="col-sm-2 col-form-label">Category</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="category" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="etf_symbol" class="col-sm-2 col-form-label">Event Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="orderQty" class="col-sm-2 col-form-label">Location</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="location" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="account" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="description" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="date" class="col-sm-2 col-form-label">Event Date</label>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" id="date" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-3">
+                    <input type="submit" id="submitButton" class="btn btn-success col-sm-3 btn-block" value="SUBMIT">
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr />
     <div class="row">
-        <div class="col-md-6"><h2 align="center" class="eventLabel">Events you're hosting</h2>
+        <div class="col-md-6"><h2 align="center" class="eventLabel">Events You're Hosting</h2>
             {{#each hostingEvents}}
                 <div class="col-md-12 thumbnail eventpadding">
-                    <label class="col-form-label">{{name}}</label><br>
+                    <label class="col-form-label"><h4>{{name}}</h4></label><br>
                     <label class="col-form-label">{{location}}</label><br>
                     <label class="col-form-label">{{eventDate}}</label>
                 </div>
             {{/each}}
         </div>
-        <div class="col-md-6"><h2 align="center" class="eventLabel">Events you're going to</h2>
+        <div class="col-md-6"><h2 align="center" class="eventLabel">Events You're Going To</h2>
             {{#each goingEvents}}
                 <div class="col-md-12 thumbnail eventpadding">
-                    <label class="col-form-label">{{name}}</label><br>
+                    <label class="col-form-label"><h4>{{name}}</h4></label><br>
                     <label class="col-form-label">{{location}}</label><br>
                     <label class="col-form-label">{{eventDate}}</label>
                 </div>
