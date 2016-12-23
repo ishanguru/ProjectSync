@@ -11,7 +11,7 @@ Template.home.onCreated(function() {
 Template.home.helpers({
 
     joinEventFunction : function () {
-        var allValues = Events.find({ users : {$ne: Meteor.userId()}}, {
+        var allValues = Events.find({ host : {$ne: Meteor.userId()}}, {
             sort: {createdAt: -1},
             limit: 10
         }).fetch();
@@ -19,10 +19,10 @@ Template.home.helpers({
         return allValues;
     },
 
-    checkIfGoing : function () {
-        //check if the user is already going
+    userGoing : function (users) {
+        console.log(users);
+        return users.includes(Meteor.userId());
     }
-
 });
 
 Template.home.events({
@@ -36,6 +36,16 @@ Template.home.events({
         Meteor.call("joinEvents", userId, eventId, function () {
             
         });
-        //get this event ID, update the record in user, by appending this event ID to their events array
+    },
+    'click .leaveevent': function (event) {
+        console.log("left event");
+        var target = event.target;
+
+        var eventId = target.id;
+        var userId = Meteor.userId();
+
+        Meteor.call("leaveEvents", userId, eventId, function () {
+
+        });
     }
 });

@@ -4,13 +4,23 @@
         <div class="row">
             <div class="row" id="event_thumbnails">
                 {{#each joinEventFunction}}
-                <div class="col-md-12 thumbnail eventpadding">
-                    <label class="col-form-label name"><h2>{{name}}</h2></label><br>
-                    <label class="col-form-label location">{{location}}</label><br>
-                    <label class="col-form-label event_date">{{eventDate}}</label>
-                    <br>
-                    <h6 class="joinevent btn btn-danger" id="{{_id}}">Join event</h6>
-                </div>
+                    {{#if userGoing users}}
+                        <div class="col-md-12 thumbnail eventpadding">
+                            <label class="col-form-label name"><h2>{{name}}</h2></label><br>
+                            <label class="col-form-label location">{{location}}</label><br>
+                            <label class="col-form-label event_date">{{eventDate}}</label>
+                            <br>
+                            <h6 class="leaveevent btn btn-success" id="{{_id}}">Leave event</h6>
+                        </div>
+                    {{else}}
+                        <div class="col-md-12 thumbnail eventpadding">
+                            <label class="col-form-label name"><h2>{{name}}</h2></label><br>
+                            <label class="col-form-label location">{{location}}</label><br>
+                            <label class="col-form-label event_date">{{eventDate}}</label>
+                            <br>
+                            <h6 class="joinevent btn btn-danger" id="{{_id}}">Join event</h6>
+                        </div>
+                    {{/if}}
                 {{/each}}
             </div>
         </div>
