@@ -61,7 +61,7 @@ Meteor.startup(() => {
         },
         joinEvents: function (userId, eventId) {
             var updatedRecords = Events.update(
-                { eventId: eventId},
+                { _id: eventId},
                 { $push: {users: userId}}
             );
             console.log(updatedRecords);

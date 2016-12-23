@@ -5,6 +5,10 @@ body {
 
 }
 
+.eventpadding {
+    padding: 1%;
+}
+
 #nav_header_bar {
     background-color: white;
     margin-bottom: 0;

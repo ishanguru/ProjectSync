@@ -10,12 +10,17 @@ Template.home.onCreated(function() {
 
 Template.home.helpers({
 
-    tempfunc : function () {
-        var allValues = Events.find({}, {
-            sort: {createdAt: -1}
+    joinEventFunction : function () {
+        var allValues = Events.find({ users : {$ne: Meteor.userId()}}, {
+            sort: {createdAt: -1},
+            limit: 10
         }).fetch();
         // console.log(allValues);
         return allValues;
+    },
+
+    checkIfGoing : function () {
+        //check if the user is already going
     }
 
 });
