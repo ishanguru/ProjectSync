@@ -9,6 +9,10 @@ body {
     padding: 1%;
 }
 
+.eventLabel {
+    color: red;
+}
+
 #nav_header_bar {
     background-color: white;
     margin-bottom: 0;

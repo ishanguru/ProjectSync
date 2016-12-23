@@ -43,7 +43,7 @@ EventSchema = new SimpleSchema({
     },
 
     eventDate: {
-        type: Date,
+        type: String,
         label: "Event Date"
     },
 
