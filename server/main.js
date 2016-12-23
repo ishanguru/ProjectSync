@@ -59,7 +59,6 @@ Meteor.startup(() => {
             }
             return json;
         },
-
         joinEvents: function (userId, eventId) {
             var updatedRecords = Events.update(
                 { eventId: eventId},
@@ -67,6 +66,58 @@ Meteor.startup(() => {
             );
             console.log(updatedRecords);
             return updatedRecords
+        },
+        find_host_events : function(curr_id) {
+            console.log("in find events ****************************");
+            var events_array = Events.find({host: curr_id}, {multi: true}).fetch();
+            console.log(events_array);
+            console.log("type is =.= " + typeof(events_array));
+            var data;
+            if (events_array.length > 0) {
+                console.log("in main - have events - display events");
+                data = [true, events_array];
+            }
+            else {
+                console.log("no events - display text");
+                data = [false];
+            }
+            return data;
+        },
+        find_going_events : function(curr_id) {
+            console.log("in find going  events $$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+            var curr_user_name = ((CurrentUsers.find({userId: curr_id}).fetch())[0]).name; // get user name
+            console.log(curr_user_name);
+            var all_events = Events.find({}).fetch();
+            console.log(all_events);
+            var curr_user_events_array = [];
+
+            // get all the events -> check their users lists -> check if the current user_name
+            // is in the users list -> if yes, get the event info
+                                //  -> if not, skip
+            // if events.array lenth > 0, return true and the array; else, return false array
+
+            for(var i = 0; i < all_events.length; i++) {
+                var users = all_events[i].users;
+                console.log("users: " + users);
+                for(var j = 0; j < users.length; j++) {
+                    if(users[j] === curr_user_name) {
+                        console.log("have the same name!");
+                        // get the event data into the curr_user_events_array;
+                        curr_user_events_array.push(all_events[i]);
+                    }
+                }
+            }
+            console.log("finally event_list: " + curr_user_events_array);
+             var data;
+            if (curr_user_events_array.length > 0) {
+                console.log("in main - going to events - display events");
+                data = [true, curr_user_events_array];
+            }
+            else {
+                console.log("not going to any events - display text");
+                data = [false];
+            }
+            return data;
         }
     })
 });
