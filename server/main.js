@@ -15,7 +15,7 @@ Meteor.startup(() => {
          	var name=CurrentUsers.find({userId:Meteor.userId()}, {fields:{name: 1}}).fetch()[0]['name'];
          	var finalArr=[];
          	console.log(name);
-        	var toArr=Messages.find({to: name}, {fields:{from: 1, limit: 10}}).fetch();
+        	var toArr=Messages.find({to: name}, {fields:{from: 1}}).fetch();
         	for (var i = 0; i < toArr.length; i++){
         		finalArr[i]=toArr[i]['from'];
         	}
@@ -30,7 +30,10 @@ Meteor.startup(() => {
         	console.log(message)
         	Messages.insert({'to': to, 'from':newFrom[0]['name'], 'message':message})
         },
-
+        getMessages: function(name){
+        	//var curUser=CurrentUsers.find({userId:Meteor.userId()}, {fields:{name: 1}}).fetch()[0]['name'];
+        },
+        
         profile_update: function (curr_id, name, bio) {
             console.log("in profile update");
             console.log(curr_id);

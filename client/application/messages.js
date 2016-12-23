@@ -55,10 +55,24 @@ Template.body.events({
     }, 
     'click #submitButton_sendm': function(e){
         e.preventDefault();
-        console.log($("#messageText").html());
+        var string=$("#messageText").html();
+        var name="";
+        var index=string.indexOf('>')+1;
+        while (string[index]!='<'){
+            name=name+string[index];
+            index+=1;
+        }
+        console.log(name);
         $("#messageText").remove();
         $("#messaging").remove();
-       // Meteor.call("getMessages", )
+        Meteor.call("getMessages", name, function(data){
+
+        });
+        $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Submit">');
+    }, 
+    'click #submitButton_back': function(e){
+        e.preventDefault();
+        window.location.replace('/messages');
     }
 });
 
