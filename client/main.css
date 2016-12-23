@@ -10,7 +10,7 @@ body {
 }
 
 .eventLabel {
-    color: red;
+    color: #d12323;
 }
 
 #nav_header_bar {
@@ -20,7 +20,7 @@ body {
 }
 
 #nav_logo {
-    color: #FE4C4C;
+    color: #d12323;
 }
 
 #bs-example-navbar-collapse-1 a {
@@ -28,7 +28,7 @@ body {
 }
 
 #bs-example-navbar-collapse-1 a:hover {
-    color: #FE4C4C;
+    color: #d12323;
 }
 
 #not_logged_in_jumbo {
@@ -42,14 +42,14 @@ body {
 #jumbo_text h1{
     margin: 0 !important;
     font-size: 500%;
-    color: #FE4C4C;
+    color: #d12323;
     text-align: center;
     font-weight: normal;
 }
 
 #jumbo_text p{
     font-size: 300%;
-    color: #FE4C4C;
+    color: #d12323;
     text-align: center;
     font-weight: lighter;
 
@@ -65,7 +65,7 @@ body {
 }
 
 #jumbo_text button {
-    background-color: #FE4C4C;
+    background-color: #d12323;
     width:150%;
     margin-left: -20%;
 }
@@ -94,8 +94,8 @@ body {
 #submitButton_profile {
     width: 40%;
     margin-left: 20%;
-    background-color: #FE4C4C;
-    border: 1px solid #F74444;;
+    background-color: #d12323;
+    border: 1px solid #d12323;
 }
 
 #rowThree {
@@ -110,7 +110,7 @@ body {
 }
 
 .form-group.row label {
-    color: #FE4C4C;
+    color: #d12323;
 }
 
 #event_thumbnails {
@@ -124,8 +124,8 @@ body {
 }
 
 .col-md-12.thumbnail.eventpadding .joinevent.btn.btn-danger {
-    background-color: #FE4C4C;
-    border: 1px solid #F74444;
+    background-color: #d12323;
+    border: 1px solid #d12323;
     margin-bottom: 3%;
 }
 
@@ -146,8 +146,8 @@ body {
 }
 
 #submitButton {
-    background-color: #FE4C4C;
-    border: 1px solid #F74444;
+    background-color: #d12323;
+    border: 1px solid #d12323;
     width: 50%;
     margin-left: 100%;
 }
@@ -175,8 +175,8 @@ body {
 }
 
 #top_button {
-    background-color: #FE4C4C;
-    border: 1px solid #F74444;
+    background-color: #d12323;
+    border: 1px solid #d12323;
     margin-left: 198%;
 }
 
@@ -198,3 +198,150 @@ body {
     margin-left: 25%;
 }
 
+/*Here is where you put the css for media*/
+
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: #d12323;
+    }
+
+    #jumbo_text p {
+
+    }
+
+    #jumbo_text h1 {
+
+    }
+
+    /* Profle page */
+    #profile_block {
+        width:80%;
+        margin-left: 10%;
+    }
+
+    #rowOne {
+        margin-left: 10%;
+        width: 70%;
+    }
+    
+    #rowOneLabel {
+        color: black;
+    }
+    
+    #rowOne p {
+        margin-left: 15%;
+    }
+
+    #rowTwo {
+        margin-left: 10%;
+        width: 70%;
+    }
+
+    #rowTwoLabel {
+        color: black;    
+    }
+    
+    #rowTwo p {
+        margin-left: 15%;
+    }
+
+    #submitButton_profile {
+        width: 40%;
+        margin-left: 30%;
+
+    }
+
+    #spacebar {
+
+    }
+
+    /* Event Page */
+    .form-group.row label {
+        color: white;
+    }
+
+    #top_button {
+        background-color: white;
+        border: 1px solid white;
+        margin-left: 190%;
+    }
+
+    #top_button span {
+        color: black;
+        font-weight: bold;
+    }
+
+    #top_button:hover{
+        background-color: black;
+        border: 1px solid black;
+        margin-left: 190%;
+    }
+
+    #top_button span:hover {
+        color: white;
+        font-weight: bold;
+    }
+
+    .eventLabel {
+        color: white;
+        font-weight: bold;
+    }
+
+    #event_page_top_form_content .form-group.row{
+        margin-left: -80px;
+    }
+
+    #submitButton {
+        background-color: white;
+        border: 1px solid white;
+        width: 200%;
+        margin-left: 80px;
+        color: black;
+        font-weight: bold;
+    }
+
+    #submitButton:hover{
+        background-color: black;
+        border: 1px solid black;
+        width: 200%;
+        margin-left: 80px;
+        color: white;
+    }
+
+    /* Main Feed Page */
+    #event_thumbnails {
+        margin: 0 5% 0 5%;
+    }
+
+    .col-md-12.thumbnail.eventpadding .leaveevent.btn.btn-success:hover{
+        background-color: black;
+        border: 1px solid black;
+        margin-bottom: 3%;
+        color: white;
+    }
+
+    .col-md-12.thumbnail.eventpadding .joinevent.btn.btn-danger:hover{
+        background-color: black;
+        border: 1px solid black;
+        margin-bottom: 3%;
+        color: white;
+    }
+
+    /* Not Logged In Page */
+    #not_logged_in_jumbo {
+        margin-left: 0;
+    }
+
+    #jumbo_text h1 {
+        color: white;
+    }
+
+    #jumbo_text p {
+        color: white;
+    }
+
+    #jumbo_text {
+        left: 0;
+    }
+
+}

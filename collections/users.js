@@ -33,12 +33,12 @@ UsersSchema = new SimpleSchema({
     },
 
     events: {
-        type: Array[EventSchema],
+        type: Array[String],
         label: "Events"
     },
 
     recommendations: {
-        type: Array[EventSchema],
+        type: Array[String],
         label: "Recommendations"
     },
 
