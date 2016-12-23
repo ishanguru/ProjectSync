@@ -11,6 +11,10 @@ Meteor.startup(() => {
             console.log("!@#$%^&*()");
             Events.insert({'category': category, 'name': name, 'description': description, 'eventDate': new Date, 'location': location, 'host': host, 'users': ["temp"]});
         },
+         getCurrentMessages: function(){
+        	console.log("jmklmklmlmklmklm")
+        	return Messages.find({to: Meteor.userId()}).fetch();
+        },
         profile_update: function (curr_id, name, bio) {
             console.log("in profile update");
             console.log(curr_id);
