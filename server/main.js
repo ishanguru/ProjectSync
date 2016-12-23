@@ -31,7 +31,17 @@ Meteor.startup(() => {
         	Messages.insert({'to': to, 'from':newFrom[0]['name'], 'message':message})
         },
         getMessages: function(name){
-        	//var curUser=CurrentUsers.find({userId:Meteor.userId()}, {fields:{name: 1}}).fetch()[0]['name'];
+       		var newName=name.split(',');
+			var curUser=CurrentUsers.find({userId:Meteor.userId()}, {fields:{name: 1}}).fetch()[0]['name'];
+			var newCurUser=[];
+			newCurUser[0]=curUser;
+        	console.log(name);
+        	console.log(curUser);
+        	console.log(newName);
+        	console.log(newCurUser);
+        	var recentMessages=Messages.find({"$or":[{"$and":[{to: newCurUser},{from: name}]}, {"$and":[{to: newName}, {from:curUser}]}]}, {"sort": [['datefield', 'desc']]}, {"limit":10}).fetch()[0]['name'];
+        	console.log(recentMessages);
+
         },
         
         profile_update: function (curr_id, name, bio) {
