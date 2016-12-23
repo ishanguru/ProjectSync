@@ -198,6 +198,8 @@ body {
     margin-left: 25%;
 }
 
+/*Here is where you put the css for media*/
+
 @media only screen and (max-width: 500px) {
     body {
         background-color: darkred;
