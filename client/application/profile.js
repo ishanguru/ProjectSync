@@ -47,8 +47,8 @@ Template.profile.events({
         if (form_complete) {
             $('#user_name').remove();
             $('#user_bio').remove();
-            $('#rowOne').append("<input type=\"text\" class=\"form-control\" id=\"name\" required>");
-            $('#rowTwo').append("<input type=\"text\" class=\"form-control\" id=\"bio\" required>");
+            $('#rowOne').append("<input type=\"text\" class=\"form-control\" id=\"name\" style=\"margin-left: 8%;\" required>");
+            $('#rowTwo').append("<input type=\"text\" class=\"form-control\" id=\"bio\" style=\"margin-left: 8%;\" required>");
             form_complete = false;
         }
         else {

@@ -4,11 +4,11 @@
 
 import { Events } from '../../collections/events.js';
 
-Template.addEvents.helpers({
+Template.eventsPage.helpers({
 
 });
 
-Template.addEvents.events({
+Template.eventsPage.events({
     'submit .eventsForm': function (event) {
         event.preventDefault();
 

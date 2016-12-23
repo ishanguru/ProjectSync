@@ -1,27 +1,25 @@
 <template name="profile">
     <!--Container to align modal button-->
     <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
+        <div class="row thumbnail" id="profile_block">
+            <div class="col-sm-2">
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-8">
                 <form class="eventsForm">
                     <div class="form-group row" >
                         <label for="etf_symbol" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-4" id="rowOne">
-                            <input type="text" class="form-control" id="name" required>
+                        <div class="col-sm-6" id="rowOne">
+                            <input type="text" class="form-control" id="name" style="margin-left: 8%;" required>
                         </div>
                     </div>
                     <div class="form-group row" >
                         <label for="orderQty" class="col-sm-2 col-form-label">Bio</label>
-                        <div class="col-sm-4" id="rowTwo">
-                            <input type="text" class="form-control" id="bio" required>
+                        <div class="col-sm-6" id="rowTwo">
+                            <input type="text" class="form-control" id="bio" style="margin-left: 8%;" required>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="col-xs-3">
+                    <div class="form-group row" id="rowThree">
                             <input type="submit" id="submitButton_profile" class="btn btn-success col-sm-3 btn-block" value="UPDATE" >
-                        </div>
                     </div>
                 </form>
             </div>
