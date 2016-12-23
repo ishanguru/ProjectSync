@@ -80,7 +80,19 @@ Meteor.startup(() => {
                 { _id: eventId},
                 { $push: {users: userId}}
             );
-            console.log(updatedRecords);
+            return updatedRecords
+        },
+        leaveEvents: function (userId, eventId) {
+            var updatedRecords = Events.update(
+                { _id: eventId},
+                { $pull: {users: userId}}
+            );
+            return updatedRecords
+        },
+        cancelEvents: function (eventId) {
+            var updatedRecords = Events.remove(
+                { _id: eventId}
+            );
             return updatedRecords
         },
         find_host_events : function(curr_id) {
