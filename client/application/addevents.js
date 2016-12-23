@@ -53,3 +53,31 @@ Template.eventsPage.events({
         console.log("inserted into db");
     }
 });
+
+Template.eventsPage.events({
+    'click .cancelevent': function (event) {
+        console.log("cancelled event");
+        var target = event.target;
+
+        var eventId = target.id;
+
+        Meteor.call("cancelEvents", eventId, function () {
+
+        });
+        //get this event ID, update the record in user, by appending this event ID to their events array
+    },
+
+    'click .leaveevent': function (event) {
+        console.log("left event");
+        var target = event.target;
+
+        var eventId = target.id;
+        var userId = Meteor.userId();
+
+        Meteor.call("leaveEvents", userId, eventId, function () {
+
+        });
+        //get this event ID, update the record in user, by appending this event ID to their events array
+    },
+
+});
