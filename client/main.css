@@ -245,9 +245,31 @@ body {
     font-size: x-large;
 }
 
+#submitButton_back {
+    background-color:#d12323;
+    border: 1px solid #d12323;
+    color: white;
+    width: 50%;
+}
 
+#submitButton_back:hover {
+    background-color: #67A2FA !important;
+    border: 1px solid #67A2FA;
+    color: white;
+}
 
+#submitButton_conversation {
+    background-color:#d12323;
+    border: 1px solid #d12323;
+    color: white;
+    width: 50%;
+}
 
+#submitButton_conversation:hover {
+    background-color: #67A2FA !important;
+    border: 1px solid #67A2FA;
+    color: white;
+}
 
 /*Here is where you put the css for media*/
 
