@@ -18,14 +18,16 @@
             </div>
         </div>
     </form-->
-    <div id="messageText">
-    {{getMessages}}
-    </div>
     <div id="textArea">
-     <div id="messaging" class="form-group row">
-         <div id="submit_button" class="col-xs-3">
-            <input type="submit" id="submitButton" class="btn btn-success col-sm-3 btn-block" value="New Message">
+        <div id="messaging" class="form-group row">
+            <div id="submit_button" class="col-xs-3" style="margin-left: 20%;">
+                <input type="submit" id="submitButton" class="btn btn-success col-sm-3 btn-block" value="New Message">
+            </div>
         </div>
     </div>
+    <hr />
+    <div id="messageText">
+        {{getMessages}}
     </div>
+
 </template>

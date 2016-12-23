@@ -202,6 +202,51 @@ body {
     font-size: large;
 }
 
+#event_thumbnails .col-md-12.thumbnail.eventpadding .leaveevent.btn.btn-success {
+    background-color: #d12323;
+    border-color: #d12323;
+}
+
+#chat_hist {
+    font-size: x-large;
+    color: #d12323;
+    margin-left: 45%;
+    font-weight: bold;
+}
+
+#submitButton_sendm:hover {
+    background-color: #67A2FA !important;
+    border: 1px solid #67A2FA;
+}
+
+#submitButton_new {
+    background-color:#d12323;
+    border: 1px solid #d12323;
+    color: white;
+    width: 50%;
+    margin-left: 64%;
+}
+
+#submitButton_new:hover {
+    background-color: #67A2FA !important;
+    border: 1px solid #67A2FA;
+    color: white;
+}
+
+.neweventsForm .form-group.row {
+    text-align: center;
+    margin-left: 500px;
+}
+
+#new_msg {
+    margin-left: 44%;
+    color: #d12323;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+
+
 
 
 /*Here is where you put the css for media*/
