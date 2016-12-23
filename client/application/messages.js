@@ -63,8 +63,6 @@ Template.body.events({
         recipientArr[0]=finalString;
         Meteor.call("storeMessages", recipientArr, message, function(){
             console.log("Storing");
-            window.location.replace('/messages');
-
         });
     },
 

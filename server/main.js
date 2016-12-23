@@ -31,10 +31,7 @@ Meteor.startup(() => {
         	console.log(finalArr);
         	return finalArr;
         },
-        getCurrentUser: function(){
-        	return CurrentUsers.find({userId:Meteor.userId()}, {fields:{name: 1}}).fetch()[0]['name'];
-        },
-        
+
         storeMessages: function(to, message){
         	var newFrom=CurrentUsers.find({userId:Meteor.userId()}, {fields:{name: 1}}).fetch();
         	console.log(newFrom)
