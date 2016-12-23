@@ -112,3 +112,30 @@ body {
 .form-group.row label {
     color: #FE4C4C;
 }
+
+#event_thumbnails {
+    margin: 0 20% 0 20%;
+}
+
+.col-md-12.thumbnail.eventpadding {
+    height: 200%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.col-md-12.thumbnail.eventpadding .joinevent.btn.btn-danger {
+    background-color: #FE4C4C;
+    border: 1px solid #F74444;
+    margin-bottom: 3%;
+}
+
+.col-md-12.thumbnail.eventpadding .joinevent.btn.btn-danger:hover{
+    background-color: #67A2FA;
+    border: 1px solid #67A2FA;
+    margin-bottom: 3%;
+}
+
+
+
+
+
