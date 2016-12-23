@@ -5,6 +5,24 @@
 import { Events } from '../../collections/events.js';
 
 Template.eventsPage.helpers({
+    
+    hostingEvents : function () {
+        var allValues = Events.find({host : Meteor.userId()}, {
+            sort: {createdAt: -1},
+            limit: 10
+        }).fetch();
+        // console.log(allValues);
+        return allValues;
+    },
+
+    goingEvents : function () {
+        var allValues = Events.find({users : {$in: [Meteor.userId()]}}, {
+            sort: {createdAt: -1},
+            limit: 10
+        }).fetch();
+        // console.log(allValues);
+        return allValues;
+    }
 
 });
 
@@ -17,7 +35,8 @@ Template.eventsPage.events({
         var category = target.category.value;
         var location = target.location.value;
         var description = target.location.value;
-        var date = new Date();
+        var date = target.date.value;
+        console.log(date);
         var name = target.name.value;
         var host =  Meteor.userId();
 
@@ -27,7 +46,7 @@ Template.eventsPage.events({
         console.log(location);
         console.log(description);
 
-        Meteor.call("store", category, description, name, host, location,  function () {
+        Meteor.call("store", category, description, name, host, location, date, function () {
 
         });
 

@@ -7,9 +7,9 @@ import { CurrentUsers } from '../collections/users.js'
 Meteor.startup(() => {
   // code to run on server at startup
     Meteor.methods({
-        store: function (category, description, name, host, location) {
+        store: function (category, description, name, host, location, date) {
             console.log("!@#$%^&*()");
-            Events.insert({'category': category, 'name': name, 'description': description, 'eventDate': new Date, 'location': location, 'host': host, 'users': ["temp"]});
+            Events.insert({'category': category, 'name': name, 'description': description, 'eventDate': date, 'location': location, 'host': host, 'users': ["temp"]});
         },
          getCurrentMessages: function(){
          	var name=CurrentUsers.find({userId:Meteor.userId()}, {fields:{name: 1}}).fetch()[0]['name'];

@@ -5,7 +5,10 @@
             <div class="row">
                 {{#each joinEventFunction}}
                 <div class="col-md-12 thumbnail eventpadding">
-                    <label class="col-form-label">{{description}}</label> <h6 class="joinevent" id="{{_id}}">Join event</h6>
+                    <label class="col-form-label">{{name}}</label><br>
+                    <label class="col-form-label">{{location}}</label><br>
+                    <label class="col-form-label">{{eventDate}}</label>
+                    <h6 class="joinevent" id="{{_id}}">Join event</h6>
                 </div>
                 {{/each}}
             </div>
