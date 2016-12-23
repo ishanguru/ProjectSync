@@ -16,8 +16,15 @@ Meteor.startup(() => {
          	var finalArr=[];
          	console.log(name);
         	var toArr=Messages.find({to: name}, {fields:{from: 1}}).fetch();
+        	var map={};
+        	var counter=0;
         	for (var i = 0; i < toArr.length; i++){
-        		finalArr[i]=toArr[i]['from'];
+        		if(toArr[i]['from'] in map){
+        			counter+=1;
+        			continue;
+        		}
+        		finalArr[i-counter]=toArr[i]['from'];
+        		map[toArr[i]['from']]=1;
         	}
         	console.log(finalArr);
         	return finalArr;
@@ -28,7 +35,7 @@ Meteor.startup(() => {
         	console.log(newFrom)
         	console.log(to)
         	console.log(message)
-        	Messages.insert({'to': to, 'from':newFrom[0]['name'], 'message':message})
+        	Messages.insert({'to': to, 'from':newFrom[0]['name'], 'message':message});
         },
         getMessages: function(name){
        		var newName=name.split(',');
@@ -39,9 +46,10 @@ Meteor.startup(() => {
         	console.log(curUser);
         	console.log(newName);
         	console.log(newCurUser);
-        	var recentMessages=Messages.find({"$or":[{"$and":[{to: newCurUser},{from: name}]}, {"$and":[{to: newName}, {from:curUser}]}]}, {"sort": [['datefield', 'desc']]}, {"limit":10}).fetch()[0]['name'];
+        	//console.log(Messages.find({"$or":[{"$and":[{to: name}, {from: name}]}, {"sort": [['datefield', 'desc']]}, {"limit":10}).fetch());
+        	var recentMessages=Messages.find({"$or":[{"$and":[{to: newCurUser}, {from: name}]}, {"$and":[{to: newName}, {from:curUser}]}]}, {"sort": [['datefield', 'desc']]}, {"limit":10}).fetch();
         	console.log(recentMessages);
-
+        	return recentMessages;
         },
         
         profile_update: function (curr_id, name, bio) {

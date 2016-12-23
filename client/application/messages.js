@@ -37,6 +37,30 @@ Template.body.events({
                             '<input type="submit" id="submitButton_new" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
                             '</div></div></form>');
     }, 
+    'submit .neweventsForm_2': function(e){
+        e.preventDefault();
+        var target=e.target;
+        var message=target.conversation_message.value;
+        console.log(message);
+        htmlVal=$("#textArea").html();
+        index=htmlVal.indexOf(":");
+        finalString="";
+        while(htmlVal[index]!=">"){
+            index--;
+        }
+        index++;
+        while(htmlVal[index]!=':'){
+            finalString=finalString+htmlVal[index];
+            index++;
+        }
+        console.log(finalString);
+        recipientArr=[];
+        recipientArr[0]=finalString;
+        Meteor.call("storeMessages", recipientArr, message, function(){
+            console.log("Storing");
+        });
+    },
+
     'submit .neweventsForm': function(e){
         e.preventDefault();
 
@@ -48,6 +72,7 @@ Template.body.events({
 
         Meteor.call("storeMessages", recipients, message, function(){
             console.log("Storing");
+
         });
 
         window.location.replace('/messages');
@@ -65,10 +90,25 @@ Template.body.events({
         console.log(name);
         $("#messageText").remove();
         $("#messaging").remove();
-        Meteor.call("getMessages", name, function(data){
+        Meteor.call("getMessages", name, function(err, data){
+            if(err){
+                console.log("error");
+                return;
+            }
+            console.log(data);
+            for (var i = data.length-1; i >=0; i--){
+                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
+            }
+            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
+            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<div class="form-group row"><div class="col-xs-3">'+
+            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+            '</div></div></form>');
 
+            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
+            '</div></div></form>');
         });
-        $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Submit">');
     }, 
     'click #submitButton_back': function(e){
         e.preventDefault();
