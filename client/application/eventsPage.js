@@ -127,7 +127,7 @@ Template.eventsPage.events({
           //  form.style.width = '100%';
             form.style.marginLeft = '30%';
             $('#top_button span').remove();
-            $('#top_button').append('<span>NO EVENTS</span>');
+            $('#top_button').append('<span>HIDE FORM</span>');
             add_event_form_shown = false;
             console.log("in the form");
         }
