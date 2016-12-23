@@ -108,7 +108,7 @@ Template.body.events({
             }
             $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
             '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
-            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<input type="text" class="form-control" id="conversation_message" placeholder="Search Here" required></div></div>' +
             '<div class="form-group row"><div class="col-xs-3">'+
             '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
             '</div></div></form>');
