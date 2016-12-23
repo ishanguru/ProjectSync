@@ -15,7 +15,9 @@ Meteor.startup(() => {
          	var name=CurrentUsers.find({userId:Meteor.userId()}, {fields:{name: 1}}).fetch()[0]['name'];
          	var finalArr=[];
          	console.log(name);
-        	var toArr=Messages.find({to: name}, {fields:{from: 1}}).fetch();
+         	newName=[];
+         	newName[0]=name;
+        	var toArr=Messages.find({to: newName}, {fields:{from: 1}}).fetch();
         	var map={};
         	var counter=0;
         	for (var i = 0; i < toArr.length; i++){

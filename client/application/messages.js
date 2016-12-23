@@ -1,4 +1,5 @@
-import { Events } from '../../collections/messages.js';
+import { Messages } from '../../collections/messages.js';
+var cursor=Messages.find();
 
 Template.messages.helpers({
     getMessages: function(){
@@ -58,6 +59,29 @@ Template.body.events({
         recipientArr[0]=finalString;
         Meteor.call("storeMessages", recipientArr, message, function(){
             console.log("Storing");
+            $("#textArea").remove();
+            Meteor.call("getMessages", name, function(err, data){
+            if(err){
+                console.log("error");
+                return;
+            }
+            console.log(data);
+            $("#template_message").append('<div id="textArea">');
+            for (var i = data.length-1; i >=0; i--){
+                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
+            }
+            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
+            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<div class="form-group row"><div class="col-xs-3">'+
+            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+            '</div></div></form>');
+
+            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
+            '</div></div></form>');
+            $("#template_message").append('</div>');
+
+        });
         });
     },
 
