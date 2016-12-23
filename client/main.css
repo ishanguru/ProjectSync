@@ -1,1 +1,75 @@
 /* CSS declarations go here */
+body {
+   background-color: #F7F7F7;
+
+}
+
+#nav_header_bar {
+    background-color: white;
+    margin-bottom: 0;
+    height: 10%;
+}
+
+#nav_logo {
+    color: #FE4C4C;
+}
+
+#bs-example-navbar-collapse-1 a {
+    background-color: white;
+}
+
+#bs-example-navbar-collapse-1 a:hover {
+    color: #FE4C4C;
+}
+
+#not_logged_in_jumbo {
+    margin-top: -20px;
+    height: 700px;
+    background-image: url("http://luxesocietyasia.com/wp-content/uploads/2014/09/KuDeTa-Fourth-Anniversary-Party-Scene.jpeg");
+    position: relative;
+}
+
+
+#jumbo_text h1{
+    margin: 0 !important;
+    font-size: 375%;
+    color: #FE4C4C;
+    text-align: center;
+}
+
+#jumbo_text p{
+    font-size: 200%;
+    color: white;
+    text-align: center;
+}
+
+#jumbo_text {
+    text-align: center;
+    z-index: 100;
+    position: absolute;
+    left: 40%;
+    top: 30%;
+}
+
+#jumbo_text button {
+    background-color: #FE4C4C;
+    width:150%;
+    margin-left: -20%;
+}
+
+#login_button {
+    text-decoration: none;
+}
+/*
+#video-background {
+    /*  making the video fullscreen  */
+ /*   position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+} */
+
