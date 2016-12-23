@@ -15,6 +15,9 @@ Meteor.startup(() => {
         	console.log("jmklmklmlmklmklm")
         	return Messages.find({to: Meteor.userId()}).fetch();
         },
+       /* storeMessages: function(to, from, message){
+        	Messages.insert({'to': to, 'from':from, 'message':message})
+        }*/
         profile_update: function (curr_id, name, bio) {
             console.log("in profile update");
             console.log(curr_id);
