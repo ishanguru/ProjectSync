@@ -14,8 +14,7 @@ MessageSchema = new SimpleSchema({
     },
 
     from: {
-        type:[String]
-    },
+        type:String    },
 
     message: {
         type:String,

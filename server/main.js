@@ -12,12 +12,25 @@ Meteor.startup(() => {
             Events.insert({'category': category, 'name': name, 'description': description, 'eventDate': new Date, 'location': location, 'host': host, 'users': ["temp"]});
         },
          getCurrentMessages: function(){
-        	console.log("jmklmklmlmklmklm")
-        	return Messages.find({to: Meteor.userId()}).fetch();
+         	var name=CurrentUsers.find({userId:Meteor.userId()}, {fields:{name: 1}}).fetch()[0]['name'];
+         	var finalArr=[];
+         	console.log(name);
+        	var toArr=Messages.find({to: name}, {fields:{from: 1, limit: 10}}).fetch();
+        	for (var i = 0; i < toArr.length; i++){
+        		finalArr[i]=toArr[i]['from'];
+        	}
+        	console.log(finalArr);
+        	return finalArr;
         },
-       /* storeMessages: function(to, from, message){
-        	Messages.insert({'to': to, 'from':from, 'message':message})
-        }*/
+
+        storeMessages: function(to, message){
+        	var newFrom=CurrentUsers.find({userId:Meteor.userId()}, {fields:{name: 1}}).fetch();
+        	console.log(newFrom)
+        	console.log(to)
+        	console.log(message)
+        	Messages.insert({'to': to, 'from':newFrom[0]['name'], 'message':message})
+        },
+
         profile_update: function (curr_id, name, bio) {
             console.log("in profile update");
             console.log(curr_id);
