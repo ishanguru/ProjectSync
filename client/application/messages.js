@@ -1,5 +1,4 @@
 import { Messages } from '../../collections/messages.js';
-var cursor=Messages.find();
 
 Template.messages.helpers({
     getMessages: function(){
@@ -15,12 +14,9 @@ Template.messages.helpers({
                 return;
             }
             console.log(data);
-            $("#messageText").append("<p id=\"chat_hist\">Chat History</p>");
             for(var i = 0; i < data.length; i++){
-
-                $("#messageText").append('<div style=\"width: 50%; margin-left: 24%; padding: 1%;\">' +
-                    '<div class="col-md-12 thumbnail eventpadding">' + "<span style=\"font-weight: bold; padding: 2%;\">" + data[i]
-                    + '</span><input type="submit" class=\"btn\" style=\"background-color:#d12323; color: white;\" id="submitButton_sendm" value="See Messages">'+'</div></div>');
+                $("#messageText").append('<div class="col-md-12 thumbnail eventpadding">' + data[i] + 
+                                    '<input type="submit" id="submitButton_sendm" value="See Messages">'+'</div>');
             }
         });
     }
@@ -32,14 +28,13 @@ Template.body.events({
         console.log("ikmklmklmklm");
         $("#messaging").remove();
         $("#nomessages").remove();
-        $("#textArea").append(' <form class="neweventsForm">' + "<p id=\"new_msg\">New Message</p>" +
-                            '<div class="form-group row">'+
+        $("#textArea").append(' <form class="neweventsForm"><div class="form-group row">'+
                             '<label for="etf_symbol" class="col-sm-2 col-form-label">Recipients</label><div class="col-sm-4">'+
                             '<input type="text" class="form-control" id="recipients" required></div></div>'+
                             '<div class="form-group row"><label for="orderQty" class="col-sm-2 col-form-label">Enter message</label>'+
                             '<div class="col-sm-4"><input type="text" class="form-control" id="message" required></div></div>'+
                             '<div class="form-group row"><div class="col-xs-3">'+
-                            '<input type="submit" id="submitButton_new"  class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+                            '<input type="submit" id="submitButton_new" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
                             '</div></div></form>');
     }, 
     'submit .neweventsForm_2': function(e){
@@ -63,29 +58,8 @@ Template.body.events({
         recipientArr[0]=finalString;
         Meteor.call("storeMessages", recipientArr, message, function(){
             console.log("Storing");
-            $("#textArea").remove();
-            Meteor.call("getMessages", name, function(err, data){
-            if(err){
-                console.log("error");
-                return;
-            }
-            console.log(data);
-            $("#template_message").append('<div id="textArea">');
-            for (var i = data.length-1; i >=0; i--){
-                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
-            }
-            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
-            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
-            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
-            '<div class="form-group row"><div class="col-xs-3">'+
-            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
-            '</div></div></form>');
+            window.location.replace('/messages');
 
-            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
-            '</div></div></form>');
-            $("#template_message").append('</div>');
-
-        });
         });
     },
 
@@ -129,7 +103,7 @@ Template.body.events({
             }
             $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
             '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
-            '<input type="text" class="form-control" id="conversation_message" placeholder="Search Here" required></div></div>' +
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
             '<div class="form-group row"><div class="col-xs-3">'+
             '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
             '</div></div></form>');
@@ -147,22 +121,16 @@ Template.body.events({
 /*Template.addEvents.events({
     'submit eventsForm': function (event) {
         event.preventDefault();
-
         var target = event.target;
-
         var category = target.category.value;
         var location = target.location.value;
         var description = target.location.value;
         var date = new Date();
-
         console.log(category);
         console.log(location);
         console.log(description);
-
         Meteor.call("store", function () {
-
         });
-
         console.log("inserted into db");
     }
 });*/
