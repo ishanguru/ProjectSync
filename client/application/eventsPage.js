@@ -52,7 +52,12 @@ Template.eventsPage.helpers({
             }
         });
     },
-
+    makeProfile: function(){
+        var val=CurrentUsers.find({userId: Meteor.userId()}, {fields:{name: 1}}).fetch();
+        if(val.length==0 || val[0]['name']=='undefined'){
+            window.location.replace('/profile');
+        }
+    },
     getGoingEvent : function() {
         Meteor.call("find_going_events", Meteor.userId(), function(err, data){
             if(err) {

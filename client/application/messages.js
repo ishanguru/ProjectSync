@@ -1,4 +1,5 @@
 import { Messages } from '../../collections/messages.js';
+import { CurrentUsers } from '../../collections/users.js';
 
 Template.messages.helpers({
     getMessages: function(){
@@ -19,7 +20,14 @@ Template.messages.helpers({
                                     '<input type="submit" id="submitButton_sendm" value="See Messages">'+'</div>');
             }
         });
-    }
+    },
+    makeProfile: function(){
+        var val=CurrentUsers.find({userId: Meteor.userId()}, {fields:{name: 1}}).fetch();
+        if(val.length==0 || val[0]['name']=='undefined'){
+            window.location.replace('/profile');
+        }
+    },
+ 
 });
 
 Template.body.events({
