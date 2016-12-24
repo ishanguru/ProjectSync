@@ -25,12 +25,33 @@ Template.home.helpers({
     },
 
     joinEventFunction : function () {
-        var allValues = Events.find({ host : {$ne: Meteor.userId()}}, {
-            sort: {createdAt: -1},
-            limit: 10
-        }).fetch();
-        // console.log(allValues);
-        return allValues;
+        var allValues = Events.find({ host : {$ne: Meteor.userId()}}).fetch();
+        console.log(allValues);
+        var newArr=[];
+        var finalArr=[];
+        for(var i = 0; i < allValues.length; i++){
+            newArr[i]={'length': allValues[i]['users'].length, 'id':allValues[i]['_id']};
+        }
+        newArr=newArr.sort(function(a, b){
+            if (a['length']>b['length']){
+                return -1;
+            }
+            else if(a['length']<b['length']){
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        });
+        for(var i = 0; i<newArr.length; i++){
+            for(var j = 0; j < allValues.length; j++){
+                if(allValues[j]['_id']==newArr[i]['id']){
+                    finalArr[i]=allValues[j];
+                }
+            }
+        }
+
+        return finalArr;
     },
 
     userGoing : function (users) {
