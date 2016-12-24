@@ -1,7 +1,13 @@
 <template name="home">
     <!--Container to align modal button-->
     <div class="container">
-        <div class="row">
+        <div id="noevents" class="row">
+            {{#if checkEvents}}
+                <div class="not-found page jumbotron">
+                    <h2>Sorry!</h2>
+                    <p>No events at this time.</p>
+                 </div>
+            {{/if}}
             <div class="row" id="event_thumbnails">
                 {{#each joinEventFunction}}
                     {{#if userGoing users}}

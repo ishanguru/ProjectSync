@@ -11,6 +11,18 @@ Template.home.onCreated(function() {
 });
 
 Template.home.helpers({
+    checkEvents: function(){
+        var data=Events.find().fetch();
+        var events=Events.find({host: Meteor.userId()}).fetch();
+        console.log(data);
+        console.log(events);
+        if(data.length==0 || data.length==events.length){
+            console.log("not found");
+            return true;
+        }
+        return false;
+
+    },
 
     joinEventFunction : function () {
         var allValues = Events.find({ host : {$ne: Meteor.userId()}}, {
