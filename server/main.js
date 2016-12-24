@@ -67,31 +67,26 @@ Meteor.startup(() => {
             var curr = CurrentUsers.find({userId: curr_id}).fetch().length;
             console.log("curr length: " + curr);
             if ( curr === 0) {
-                CurrentUsers.insert({
-                    'name': "undefined",
-                    'bio': "undefined",
-                    'userId': curr_id,
-                    'events': [],
-                    'recommendations': [],
-                    'messages': []
-                });
+                return true;
             }
         },
         check_profile_info : function(curr_id) {
             console.log("in check user profile Info");
             var curr_user = (CurrentUsers.find({userId: curr_id}).fetch())[0];
-            console.log(curr_user.name);
-            console.log(curr_user.bio);
-            var curr_name = curr_user.name;
-            var curr_bio = curr_user.bio;
-            var json;
-            if (curr_name !== "undefined" && curr_bio !== "undefined") {
-                console.log("in main, updating look");
-                json = [true, curr_name, curr_bio];
-            }
-            else {
-                console.log("no name and bio");
-                json = [false];
+            var json = [false];
+            if (curr_user !== undefined) {
+                console.log(curr_user.name);
+                console.log(curr_user.bio);
+                var curr_name = curr_user.name;
+                var curr_bio = curr_user.bio;
+
+                if (curr_name !== "undefined" && curr_bio !== "undefined") {
+                    console.log("in main, updating look");
+                    json = [true, curr_name, curr_bio];
+                }
+                else {
+                    console.log("no name and bio");
+                }
             }
             return json;
         },

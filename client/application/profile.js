@@ -6,17 +6,30 @@ import { CurrentUsers } from "../../collections/users"
 
 Template.profile.onCreated(function() {
     console.log(Meteor.userId());
+    form_complete = false;
 });
 
-curr_id = Meteor.userId();
 form_complete = false;
 
 Template.profile.helpers({
     addUserInDB : function() {
+        curr_id = Meteor.userId();
         console.log(curr_id);
 
-        Meteor.call("add_curr_user", Meteor.userId(), function(){
-
+        Meteor.call("add_curr_user", Meteor.userId(), function(err, data){
+            if(err) {
+                console.log("add_curr_user_call back - " + err);
+            }
+            if (data) {
+                CurrentUsers.insert({
+                    'name': "undefined",
+                    'bio': "undefined",
+                    'userId': curr_id,
+                    'events': [],
+                    'recommendations': [],
+                    'messages': []
+                });
+            }
         });
         console.log("pass inserting new item in to curr_user");
 
@@ -28,7 +41,7 @@ Template.profile.helpers({
             }
             console.log("call back: " + data);
             console.log(typeof(data));
-            if(data[0]) { // when return true, display the data
+            if(data[0] === true) { // when return true, display the data
                 $('#name').remove();
                 $('#bio').remove();
                 $('#rowOne').append("<p id=\"user_name\">" + data[1] + "</p>"); // name
@@ -36,6 +49,7 @@ Template.profile.helpers({
                 console.log("in check - change form");
                 form_complete = true;
             }
+            form_complete = false;
         });
         console.log("in check user profile Info");
     }
@@ -61,6 +75,7 @@ Template.profile.events({
             console.log(bio);
 
             /* get user and insert data into db */
+            var curr_id = Meteor.userId();
             Meteor.call("profile_update", curr_id, name, bio, function(){
 
             });
