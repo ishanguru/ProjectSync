@@ -24,12 +24,12 @@ Template.home.helpers({
 
     },
     makeProfile: function(){
-        if(CurrentUsers.find({userId: Meteor.userId()}, {fields:{name: 1}}).fetch().length==0){
+        var val=CurrentUsers.find({userId: Meteor.userId()}, {fields:{name: 1}}).fetch();
+        if(val.length==0 || val[0]['name']=='undefined'){
             window.location.replace('/profile');
-
         }
     },
-
+ 
     joinEventFunction : function () {
         var allValues = Events.find({ host : {$ne: Meteor.userId()}}).fetch();
         console.log(allValues);
