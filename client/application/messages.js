@@ -1,6 +1,5 @@
 import { Messages } from '../../collections/messages.js';
 import { CurrentUsers } from '../../collections/users.js';
-
 Template.messages.helpers({
     getMessages: function(){
         console.log("called");
@@ -16,8 +15,9 @@ Template.messages.helpers({
             }
             console.log(data);
             for(var i = 0; i < data.length; i++){
-                $("#messageText").append('<div class="col-md-12 thumbnail eventpadding">' + data[i] + 
-                                    '<input type="submit" id="submitButton_sendm" value="See Messages">'+'</div>');
+                var counter=i+1;
+                $("#messageText").append('<div class="col-md-12 thumbnail eventpadding">' +
+                                    '<input type="submit" id="submitButton_send_'+counter+'" value="See Messages from ' + data[i] + '"></div>');
             }
         });
     },
@@ -88,15 +88,293 @@ Template.body.events({
         window.location.replace('/messages');
 
     }, 
-    'click #submitButton_sendm': function(e){
+    'click #submitButton_send_1': function(e){
         e.preventDefault();
-        var string=$("#messageText").html();
+        var string=$("#submitButton_send_1").val();
+        console.log(string);
+
         var name="";
-        var index=string.indexOf('>')+1;
-        while (string[index]!='<'){
-            name=name+string[index];
-            index+=1;
-        }
+        var index=string.indexOf('m')+2;
+        name=string.substring(index);
+        console.log(name);
+        $("#messageText").remove();
+        $("#messaging").remove();
+        Meteor.call("getMessages", name, function(err, data){
+            if(err){
+                console.log("error");
+                return;
+            }
+            console.log(data);
+            for (var i = data.length-1; i >=0; i--){
+                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
+            }
+            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
+            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<div class="form-group row"><div class="col-xs-3">'+
+            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+            '</div></div></form>');
+
+            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
+            '</div></div></form>');
+        });
+    }, 
+     'click #submitButton_send_2': function(e){
+        e.preventDefault();
+        var string=$("#submitButton_send_2").val();
+        console.log(string);
+
+        var name="";
+        var index=string.indexOf('m')+2;
+        name=string.substring(index);
+        console.log(name);
+        $("#messageText").remove();
+        $("#messaging").remove();
+        Meteor.call("getMessages", name, function(err, data){
+            if(err){
+                console.log("error");
+                return;
+            }
+            console.log(data);
+            for (var i = data.length-1; i >=0; i--){
+                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
+            }
+            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
+            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<div class="form-group row"><div class="col-xs-3">'+
+            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+            '</div></div></form>');
+
+            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
+            '</div></div></form>');
+        });
+    }, 
+     'click #submitButton_send_3': function(e){
+        e.preventDefault();
+        var string=$("#submitButton_send_3").val();
+        console.log(string);
+
+        var name="";
+        var index=string.indexOf('m')+2;
+        name=string.substring(index);
+        console.log(name);
+        $("#messageText").remove();
+        $("#messaging").remove();
+        Meteor.call("getMessages", name, function(err, data){
+            if(err){
+                console.log("error");
+                return;
+            }
+            console.log(data);
+            for (var i = data.length-1; i >=0; i--){
+                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
+            }
+            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
+            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<div class="form-group row"><div class="col-xs-3">'+
+            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+            '</div></div></form>');
+
+            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
+            '</div></div></form>');
+        });
+    }, 
+    'click #submitButton_send_4': function(e){
+        e.preventDefault();
+        var string=$("#submitButton_send_4").val();
+        console.log(string);
+
+        var name="";
+        var index=string.indexOf('m')+2;
+        name=string.substring(index);
+        console.log(name);
+        $("#messageText").remove();
+        $("#messaging").remove();
+        Meteor.call("getMessages", name, function(err, data){
+            if(err){
+                console.log("error");
+                return;
+            }
+            console.log(data);
+            for (var i = data.length-1; i >=0; i--){
+                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
+            }
+            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
+            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<div class="form-group row"><div class="col-xs-3">'+
+            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+            '</div></div></form>');
+
+            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
+            '</div></div></form>');
+        });
+    }, 
+     'click #submitButton_send_5': function(e){
+        e.preventDefault();
+        var string=$("#submitButton_send_5").val();
+        console.log(string);
+
+        var name="";
+        var index=string.indexOf('m')+2;
+        name=string.substring(index);
+        console.log(name);
+        $("#messageText").remove();
+        $("#messaging").remove();
+        Meteor.call("getMessages", name, function(err, data){
+            if(err){
+                console.log("error");
+                return;
+            }
+            console.log(data);
+            for (var i = data.length-1; i >=0; i--){
+                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
+            }
+            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
+            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<div class="form-group row"><div class="col-xs-3">'+
+            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+            '</div></div></form>');
+
+            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
+            '</div></div></form>');
+        });
+    }, 
+     'click #submitButton_send_6': function(e){
+        e.preventDefault();
+        var string=$("#submitButton_send_6").val();
+        console.log(string);
+
+        var name="";
+        var index=string.indexOf('m')+2;
+        name=string.substring(index);
+        console.log(name);
+        $("#messageText").remove();
+        $("#messaging").remove();
+        Meteor.call("getMessages", name, function(err, data){
+            if(err){
+                console.log("error");
+                return;
+            }
+            console.log(data);
+            for (var i = data.length-1; i >=0; i--){
+                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
+            }
+            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
+            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<div class="form-group row"><div class="col-xs-3">'+
+            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+            '</div></div></form>');
+
+            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
+            '</div></div></form>');
+        });
+    }, 
+     'click #submitButton_send_7': function(e){
+        e.preventDefault();
+        var string=$("#submitButton_send_7").val();
+        console.log(string);
+
+        var name="";
+        var index=string.indexOf('m')+2;
+        name=string.substring(index);
+        console.log(name);
+        $("#messageText").remove();
+        $("#messaging").remove();
+        Meteor.call("getMessages", name, function(err, data){
+            if(err){
+                console.log("error");
+                return;
+            }
+            console.log(data);
+            for (var i = data.length-1; i >=0; i--){
+                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
+            }
+            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
+            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<div class="form-group row"><div class="col-xs-3">'+
+            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+            '</div></div></form>');
+
+            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
+            '</div></div></form>');
+        });
+    }, 
+     'click #submitButton_send_8': function(e){
+        e.preventDefault();
+        var string=$("#submitButton_send_8").val();
+        console.log(string);
+
+        var name="";
+        var index=string.indexOf('m')+2;
+        name=string.substring(index);
+        console.log(name);
+        $("#messageText").remove();
+        $("#messaging").remove();
+        Meteor.call("getMessages", name, function(err, data){
+            if(err){
+                console.log("error");
+                return;
+            }
+            console.log(data);
+            for (var i = data.length-1; i >=0; i--){
+                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
+            }
+            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
+            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<div class="form-group row"><div class="col-xs-3">'+
+            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+            '</div></div></form>');
+
+            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
+            '</div></div></form>');
+        });
+    }, 
+     'click #submitButton_send_9': function(e){
+        e.preventDefault();
+        var string=$("#submitButton_send_9").val();
+        console.log(string);
+
+        var name="";
+        var index=string.indexOf('m')+2;
+        name=string.substring(index);
+        console.log(name);
+        $("#messageText").remove();
+        $("#messaging").remove();
+        Meteor.call("getMessages", name, function(err, data){
+            if(err){
+                console.log("error");
+                return;
+            }
+            console.log(data);
+            for (var i = data.length-1; i >=0; i--){
+                $("#textArea").append('<div class="col-md-12 thumbnail eventpadding">' + data[i]['from'] + ': ' + data[i]['message']);
+            }
+            $("#textArea").append('<form class="neweventsForm_2"><div class="form-group row">'+
+            '<label for="etf_symbol" class="col-sm-2 col-form-label"></label><div class="col-sm-4">'+
+            '<input type="text" class="form-control" id="conversation_message" required></div></div>' + 
+            '<div class="form-group row"><div class="col-xs-3">'+
+            '<input type="submit" id="submitButton_conversation" class="btn btn-success col-sm-3 btn-block" value="Submit">'+
+            '</div></div></form>');
+
+            $("#textArea").append('<input type="submit" id="submitButton_back" class="btn btn-success col-sm-3 btn-block" value="Back to messages">'+
+            '</div></div></form>');
+        });
+    }, 
+     'click #submitButton_send_10': function(e){
+        e.preventDefault();
+        var string=$("#submitButton_send_10").val();
+        console.log(string);
+
+        var name="";
+        var index=string.indexOf('m')+2;
+        name=string.substring(index);
         console.log(name);
         $("#messageText").remove();
         $("#messaging").remove();
